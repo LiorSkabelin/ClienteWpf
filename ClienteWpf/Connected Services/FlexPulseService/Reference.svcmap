@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="67e52cf1-5d89-46f0-b007-3e10b7e7d9aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/ServiceGym/GymService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="053e78a9-1fd6-4082-859e-d51206686706" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceGym/GymService/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e8858ae0-4410-4546-9a92-c62339f93301" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceGym/GymService/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="315be6cf-c018-4a66-bb87-0965650313b2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceGym/GymService/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="7ce4e2cc-9a11-4b54-96d0-38257c2616ff" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceGym/GymService/?xsd=xsd0" />
+    <MetadataFile FileName="GymService.wsdl" MetadataType="Wsdl" ID="4447d03d-3eff-4dee-8502-15ff159a490d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceGym/GymService/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
