@@ -11,21 +11,38 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ClienteWpf
 {
     /// <summary>
-    /// Interaction logic for WindowAdmin.xaml
+    /// Interaction logic for MangerWindow.xaml
     /// </summary>
-    public partial class WindowAdmin : Window
+    public partial class MangerWindow : Window
     {
-        User admin;
-        public WindowAdmin(User admin)
+        public MangerWindow(User user)
         {
             InitializeComponent();
-            this.DataContext=this.admin=admin;
+        }
+
+        private void GymersButoon(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ProgramButton(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewProgramButton(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

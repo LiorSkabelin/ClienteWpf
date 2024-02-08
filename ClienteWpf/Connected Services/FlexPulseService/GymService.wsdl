@@ -37,6 +37,12 @@
   <wsdl:message name="IServiceGym_SelectAllGymers_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllGymersResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceGym_SelectGymerByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectGymerByUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_SelectGymerByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectGymerByUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceGym_InsertGymer_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertGymer" />
   </wsdl:message>
@@ -79,6 +85,36 @@
   <wsdl:message name="IServiceGym_DeleteTrainingProgram_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTrainingProgramResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceGym_SelectProgramDevicesByProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramDevicesByProgram" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_SelectProgramDevicesByProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramDevicesByProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_SelectProgramDevicesByDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramDevicesByDevice" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_SelectProgramDevicesByDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectProgramDevicesByDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_InsertTrainingDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTrainingDevice" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_InsertTrainingDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTrainingDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_UpdateTrainingDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrainingDevice" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_UpdateTrainingDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrainingDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_DeleteTrainingDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrainingDevice" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_DeleteTrainingDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrainingDeviceResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceGym_SelectAllUserList_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllUserList" />
   </wsdl:message>
@@ -90,6 +126,12 @@
   </wsdl:message>
   <wsdl:message name="IServiceGym_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_IsEmailFree_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailFree" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGym_IsEmailFree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailFreeResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceGym_InsertUser_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertUser" />
@@ -130,6 +172,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/SelectAllGymers" message="tns:IServiceGym_SelectAllGymers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/SelectAllGymersResponse" message="tns:IServiceGym_SelectAllGymers_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SelectGymerByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/SelectGymerByUser" message="tns:IServiceGym_SelectGymerByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/SelectGymerByUserResponse" message="tns:IServiceGym_SelectGymerByUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="InsertGymer">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/InsertGymer" message="tns:IServiceGym_InsertGymer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/InsertGymerResponse" message="tns:IServiceGym_InsertGymer_OutputMessage" />
@@ -158,6 +204,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/DeleteTrainingProgram" message="tns:IServiceGym_DeleteTrainingProgram_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/DeleteTrainingProgramResponse" message="tns:IServiceGym_DeleteTrainingProgram_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SelectProgramDevicesByProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByProgram" message="tns:IServiceGym_SelectProgramDevicesByProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByProgramResponse" message="tns:IServiceGym_SelectProgramDevicesByProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramDevicesByDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByDevice" message="tns:IServiceGym_SelectProgramDevicesByDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByDeviceResponse" message="tns:IServiceGym_SelectProgramDevicesByDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTrainingDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/InsertTrainingDevice" message="tns:IServiceGym_InsertTrainingDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/InsertTrainingDeviceResponse" message="tns:IServiceGym_InsertTrainingDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrainingDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/UpdateTrainingDevice" message="tns:IServiceGym_UpdateTrainingDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/UpdateTrainingDeviceResponse" message="tns:IServiceGym_UpdateTrainingDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrainingDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/DeleteTrainingDevice" message="tns:IServiceGym_DeleteTrainingDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/DeleteTrainingDeviceResponse" message="tns:IServiceGym_DeleteTrainingDevice_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SelectAllUserList">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/SelectAllUserList" message="tns:IServiceGym_SelectAllUserList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/SelectAllUserListResponse" message="tns:IServiceGym_SelectAllUserList_OutputMessage" />
@@ -165,6 +231,10 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/Login" message="tns:IServiceGym_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/LoginResponse" message="tns:IServiceGym_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailFree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/IsEmailFree" message="tns:IServiceGym_IsEmailFree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGym/IsEmailFreeResponse" message="tns:IServiceGym_IsEmailFree_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceGym/InsertUser" message="tns:IServiceGym_InsertUser_InputMessage" />
@@ -219,6 +289,15 @@
     </wsdl:operation>
     <wsdl:operation name="SelectAllGymers">
       <soap:operation soapAction="http://tempuri.org/IServiceGym/SelectAllGymers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectGymerByUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceGym/SelectGymerByUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -289,6 +368,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SelectProgramDevicesByProgram">
+      <soap:operation soapAction="http://tempuri.org/IServiceGym/SelectProgramDevicesByProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectProgramDevicesByDevice">
+      <soap:operation soapAction="http://tempuri.org/IServiceGym/SelectProgramDevicesByDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTrainingDevice">
+      <soap:operation soapAction="http://tempuri.org/IServiceGym/InsertTrainingDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrainingDevice">
+      <soap:operation soapAction="http://tempuri.org/IServiceGym/UpdateTrainingDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrainingDevice">
+      <soap:operation soapAction="http://tempuri.org/IServiceGym/DeleteTrainingDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SelectAllUserList">
       <soap:operation soapAction="http://tempuri.org/IServiceGym/SelectAllUserList" style="document" />
       <wsdl:input>
@@ -300,6 +424,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/IServiceGym/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailFree">
+      <soap:operation soapAction="http://tempuri.org/IServiceGym/IsEmailFree" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

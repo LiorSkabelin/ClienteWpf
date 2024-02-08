@@ -25,6 +25,22 @@ namespace ClienteWpf.FlexPulseService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Devices", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
     public partial class Devices : ClienteWpf.FlexPulseService.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -32,8 +48,9 @@ namespace ClienteWpf.FlexPulseService {
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseEntity", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWpf.FlexPulseService.Gymer))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWpf.FlexPulseService.TrainingProgram))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWpf.FlexPulseService.User))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWpf.FlexPulseService.TrainingProgram))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWpf.FlexPulseService.TrainProgramDevice))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWpf.FlexPulseService.Devices))]
     public partial class BaseEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -86,7 +103,7 @@ namespace ClienteWpf.FlexPulseService {
         private int HeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MycoachField;
+        private ClienteWpf.FlexPulseService.User MycoachField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int WeightField;
@@ -105,12 +122,12 @@ namespace ClienteWpf.FlexPulseService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Mycoach {
+        public ClienteWpf.FlexPulseService.User Mycoach {
             get {
                 return this.MycoachField;
             }
             set {
-                if ((this.MycoachField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.MycoachField, value) != true)) {
                     this.MycoachField = value;
                     this.RaisePropertyChanged("Mycoach");
                 }
@@ -133,77 +150,6 @@ namespace ClienteWpf.FlexPulseService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TrainingProgram", Namespace="http://schemas.datacontract.org/2004/07/Model")]
-    [System.SerializableAttribute()]
-    public partial class TrainingProgram : ClienteWpf.FlexPulseService.BaseEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ApprovedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LevelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserldField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Approved {
-            get {
-                return this.ApprovedField;
-            }
-            set {
-                if ((this.ApprovedField.Equals(value) != true)) {
-                    this.ApprovedField = value;
-                    this.RaisePropertyChanged("Approved");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Level {
-            get {
-                return this.LevelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LevelField, value) != true)) {
-                    this.LevelField = value;
-                    this.RaisePropertyChanged("Level");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Userld {
-            get {
-                return this.UserldField;
-            }
-            set {
-                if ((this.UserldField.Equals(value) != true)) {
-                    this.UserldField = value;
-                    this.RaisePropertyChanged("Userld");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
     public partial class User : ClienteWpf.FlexPulseService.BaseEntity {
@@ -213,6 +159,9 @@ namespace ClienteWpf.FlexPulseService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool GenderField;
@@ -251,6 +200,19 @@ namespace ClienteWpf.FlexPulseService {
                 if ((object.ReferenceEquals(this.EmailField, value) != true)) {
                     this.EmailField = value;
                     this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Firstname {
+            get {
+                return this.FirstnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstnameField, value) != true)) {
+                    this.FirstnameField = value;
+                    this.RaisePropertyChanged("Firstname");
                 }
             }
         }
@@ -323,6 +285,180 @@ namespace ClienteWpf.FlexPulseService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TrainingProgram", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class TrainingProgram : ClienteWpf.FlexPulseService.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LevelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWpf.FlexPulseService.User UserField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Approved {
+            get {
+                return this.ApprovedField;
+            }
+            set {
+                if ((this.ApprovedField.Equals(value) != true)) {
+                    this.ApprovedField = value;
+                    this.RaisePropertyChanged("Approved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Level {
+            get {
+                return this.LevelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LevelField, value) != true)) {
+                    this.LevelField = value;
+                    this.RaisePropertyChanged("Level");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWpf.FlexPulseService.User User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TrainProgramDevice", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class TrainProgramDevice : ClienteWpf.FlexPulseService.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWpf.FlexPulseService.Devices DeviceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWpf.FlexPulseService.TrainingProgram ProgramField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RepField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWpf.FlexPulseService.Devices Device {
+            get {
+                return this.DeviceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceField, value) != true)) {
+                    this.DeviceField = value;
+                    this.RaisePropertyChanged("Device");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWpf.FlexPulseService.TrainingProgram Program {
+            get {
+                return this.ProgramField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProgramField, value) != true)) {
+                    this.ProgramField = value;
+                    this.RaisePropertyChanged("Program");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Rep {
+            get {
+                return this.RepField;
+            }
+            set {
+                if ((this.RepField.Equals(value) != true)) {
+                    this.RepField = value;
+                    this.RaisePropertyChanged("Rep");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Set {
+            get {
+                return this.SetField;
+            }
+            set {
+                if ((this.SetField.Equals(value) != true)) {
+                    this.SetField = value;
+                    this.RaisePropertyChanged("Set");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Time {
+            get {
+                return this.TimeField;
+            }
+            set {
+                if ((this.TimeField.Equals(value) != true)) {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="GymerList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Gymer")]
     [System.SerializableAttribute()]
     public class GymerList : System.Collections.Generic.List<ClienteWpf.FlexPulseService.Gymer> {
@@ -330,9 +466,16 @@ namespace ClienteWpf.FlexPulseService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="TrainingpList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="TrainingProgram")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="TrainingProgramList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="TrainingProgram")]
     [System.SerializableAttribute()]
-    public class TrainingpList : System.Collections.Generic.List<ClienteWpf.FlexPulseService.TrainingProgram> {
+    public class TrainingProgramList : System.Collections.Generic.List<ClienteWpf.FlexPulseService.TrainingProgram> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="TrainProgramDeviceList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="TrainProgramDevice")]
+    [System.SerializableAttribute()]
+    public class TrainProgramDeviceList : System.Collections.Generic.List<ClienteWpf.FlexPulseService.TrainProgramDevice> {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -376,6 +519,12 @@ namespace ClienteWpf.FlexPulseService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectAllGymers", ReplyAction="http://tempuri.org/IServiceGym/SelectAllGymersResponse")]
         System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.GymerList> SelectAllGymersAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectGymerByUser", ReplyAction="http://tempuri.org/IServiceGym/SelectGymerByUserResponse")]
+        ClienteWpf.FlexPulseService.Gymer SelectGymerByUser(ClienteWpf.FlexPulseService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectGymerByUser", ReplyAction="http://tempuri.org/IServiceGym/SelectGymerByUserResponse")]
+        System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.Gymer> SelectGymerByUserAsync(ClienteWpf.FlexPulseService.User user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/InsertGymer", ReplyAction="http://tempuri.org/IServiceGym/InsertGymerResponse")]
         int InsertGymer(ClienteWpf.FlexPulseService.Gymer gymer);
         
@@ -395,10 +544,10 @@ namespace ClienteWpf.FlexPulseService {
         System.Threading.Tasks.Task<int> DeleteGymerAsync(ClienteWpf.FlexPulseService.Gymer gymer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectAllTrainingp", ReplyAction="http://tempuri.org/IServiceGym/SelectAllTrainingpResponse")]
-        ClienteWpf.FlexPulseService.TrainingpList SelectAllTrainingp();
+        ClienteWpf.FlexPulseService.TrainingProgramList SelectAllTrainingp();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectAllTrainingp", ReplyAction="http://tempuri.org/IServiceGym/SelectAllTrainingpResponse")]
-        System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainingpList> SelectAllTrainingpAsync();
+        System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainingProgramList> SelectAllTrainingpAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/InsertTrainingProgram", ReplyAction="http://tempuri.org/IServiceGym/InsertTrainingProgramResponse")]
         int InsertTrainingProgram(ClienteWpf.FlexPulseService.TrainingProgram trainingp);
@@ -418,6 +567,36 @@ namespace ClienteWpf.FlexPulseService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/DeleteTrainingProgram", ReplyAction="http://tempuri.org/IServiceGym/DeleteTrainingProgramResponse")]
         System.Threading.Tasks.Task<int> DeleteTrainingProgramAsync(ClienteWpf.FlexPulseService.TrainingProgram trainingp);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByProgram", ReplyAction="http://tempuri.org/IServiceGym/SelectProgramDevicesByProgramResponse")]
+        ClienteWpf.FlexPulseService.TrainProgramDeviceList SelectProgramDevicesByProgram(ClienteWpf.FlexPulseService.TrainingProgram program);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByProgram", ReplyAction="http://tempuri.org/IServiceGym/SelectProgramDevicesByProgramResponse")]
+        System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainProgramDeviceList> SelectProgramDevicesByProgramAsync(ClienteWpf.FlexPulseService.TrainingProgram program);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByDevice", ReplyAction="http://tempuri.org/IServiceGym/SelectProgramDevicesByDeviceResponse")]
+        ClienteWpf.FlexPulseService.TrainProgramDeviceList SelectProgramDevicesByDevice(ClienteWpf.FlexPulseService.Devices devices);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectProgramDevicesByDevice", ReplyAction="http://tempuri.org/IServiceGym/SelectProgramDevicesByDeviceResponse")]
+        System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainProgramDeviceList> SelectProgramDevicesByDeviceAsync(ClienteWpf.FlexPulseService.Devices devices);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/InsertTrainingDevice", ReplyAction="http://tempuri.org/IServiceGym/InsertTrainingDeviceResponse")]
+        int InsertTrainingDevice(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/InsertTrainingDevice", ReplyAction="http://tempuri.org/IServiceGym/InsertTrainingDeviceResponse")]
+        System.Threading.Tasks.Task<int> InsertTrainingDeviceAsync(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/UpdateTrainingDevice", ReplyAction="http://tempuri.org/IServiceGym/UpdateTrainingDeviceResponse")]
+        int UpdateTrainingDevice(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/UpdateTrainingDevice", ReplyAction="http://tempuri.org/IServiceGym/UpdateTrainingDeviceResponse")]
+        System.Threading.Tasks.Task<int> UpdateTrainingDeviceAsync(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/DeleteTrainingDevice", ReplyAction="http://tempuri.org/IServiceGym/DeleteTrainingDeviceResponse")]
+        int DeleteTrainingDevice(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/DeleteTrainingDevice", ReplyAction="http://tempuri.org/IServiceGym/DeleteTrainingDeviceResponse")]
+        System.Threading.Tasks.Task<int> DeleteTrainingDeviceAsync(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/SelectAllUserList", ReplyAction="http://tempuri.org/IServiceGym/SelectAllUserListResponse")]
         ClienteWpf.FlexPulseService.UserList SelectAllUserList();
         
@@ -429,6 +608,12 @@ namespace ClienteWpf.FlexPulseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/Login", ReplyAction="http://tempuri.org/IServiceGym/LoginResponse")]
         System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.User> LoginAsync(ClienteWpf.FlexPulseService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/IsEmailFree", ReplyAction="http://tempuri.org/IServiceGym/IsEmailFreeResponse")]
+        bool IsEmailFree(ClienteWpf.FlexPulseService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/IsEmailFree", ReplyAction="http://tempuri.org/IServiceGym/IsEmailFreeResponse")]
+        System.Threading.Tasks.Task<bool> IsEmailFreeAsync(ClienteWpf.FlexPulseService.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGym/InsertUser", ReplyAction="http://tempuri.org/IServiceGym/InsertUserResponse")]
         int InsertUser(ClienteWpf.FlexPulseService.User user);
@@ -516,6 +701,14 @@ namespace ClienteWpf.FlexPulseService {
             return base.Channel.SelectAllGymersAsync();
         }
         
+        public ClienteWpf.FlexPulseService.Gymer SelectGymerByUser(ClienteWpf.FlexPulseService.User user) {
+            return base.Channel.SelectGymerByUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.Gymer> SelectGymerByUserAsync(ClienteWpf.FlexPulseService.User user) {
+            return base.Channel.SelectGymerByUserAsync(user);
+        }
+        
         public int InsertGymer(ClienteWpf.FlexPulseService.Gymer gymer) {
             return base.Channel.InsertGymer(gymer);
         }
@@ -540,11 +733,11 @@ namespace ClienteWpf.FlexPulseService {
             return base.Channel.DeleteGymerAsync(gymer);
         }
         
-        public ClienteWpf.FlexPulseService.TrainingpList SelectAllTrainingp() {
+        public ClienteWpf.FlexPulseService.TrainingProgramList SelectAllTrainingp() {
             return base.Channel.SelectAllTrainingp();
         }
         
-        public System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainingpList> SelectAllTrainingpAsync() {
+        public System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainingProgramList> SelectAllTrainingpAsync() {
             return base.Channel.SelectAllTrainingpAsync();
         }
         
@@ -572,6 +765,46 @@ namespace ClienteWpf.FlexPulseService {
             return base.Channel.DeleteTrainingProgramAsync(trainingp);
         }
         
+        public ClienteWpf.FlexPulseService.TrainProgramDeviceList SelectProgramDevicesByProgram(ClienteWpf.FlexPulseService.TrainingProgram program) {
+            return base.Channel.SelectProgramDevicesByProgram(program);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainProgramDeviceList> SelectProgramDevicesByProgramAsync(ClienteWpf.FlexPulseService.TrainingProgram program) {
+            return base.Channel.SelectProgramDevicesByProgramAsync(program);
+        }
+        
+        public ClienteWpf.FlexPulseService.TrainProgramDeviceList SelectProgramDevicesByDevice(ClienteWpf.FlexPulseService.Devices devices) {
+            return base.Channel.SelectProgramDevicesByDevice(devices);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.TrainProgramDeviceList> SelectProgramDevicesByDeviceAsync(ClienteWpf.FlexPulseService.Devices devices) {
+            return base.Channel.SelectProgramDevicesByDeviceAsync(devices);
+        }
+        
+        public int InsertTrainingDevice(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice) {
+            return base.Channel.InsertTrainingDevice(programDevice);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertTrainingDeviceAsync(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice) {
+            return base.Channel.InsertTrainingDeviceAsync(programDevice);
+        }
+        
+        public int UpdateTrainingDevice(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice) {
+            return base.Channel.UpdateTrainingDevice(programDevice);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTrainingDeviceAsync(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice) {
+            return base.Channel.UpdateTrainingDeviceAsync(programDevice);
+        }
+        
+        public int DeleteTrainingDevice(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice) {
+            return base.Channel.DeleteTrainingDevice(programDevice);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteTrainingDeviceAsync(ClienteWpf.FlexPulseService.TrainProgramDevice programDevice) {
+            return base.Channel.DeleteTrainingDeviceAsync(programDevice);
+        }
+        
         public ClienteWpf.FlexPulseService.UserList SelectAllUserList() {
             return base.Channel.SelectAllUserList();
         }
@@ -586,6 +819,14 @@ namespace ClienteWpf.FlexPulseService {
         
         public System.Threading.Tasks.Task<ClienteWpf.FlexPulseService.User> LoginAsync(ClienteWpf.FlexPulseService.User user) {
             return base.Channel.LoginAsync(user);
+        }
+        
+        public bool IsEmailFree(ClienteWpf.FlexPulseService.User user) {
+            return base.Channel.IsEmailFree(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsEmailFreeAsync(ClienteWpf.FlexPulseService.User user) {
+            return base.Channel.IsEmailFreeAsync(user);
         }
         
         public int InsertUser(ClienteWpf.FlexPulseService.User user) {

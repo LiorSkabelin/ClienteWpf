@@ -68,17 +68,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="WindowAdmin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Compile Include="WindowAdmin.xaml.cs">
-      <DependentUpon>WindowAdmin.xaml</DependentUpon>
+    <Compile Include="CoachWindow.xaml.cs">
+      <DependentUpon>CoachWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorkOutWindow.xaml.cs">
+      <DependentUpon>WorkOutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MangerWindow.xaml.cs">
+      <DependentUpon>MangerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmallProgramUserControl.xaml.cs">
+      <DependentUpon>SmallProgramUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomeWindow.xaml.cs">
+      <DependentUpon>HomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CoachWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DictionaryCoach.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkOutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MangerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SmallProgramUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -88,14 +120,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="WindowSignUp.xaml.cs">
-      <DependentUpon>WindowSignUp.xaml</DependentUpon>
+    <Compile Include=".xaml.cs">
+      <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
-    <Compile Include="WindowLogin.xaml.cs">
-      <DependentUpon>WindowLogin.xaml</DependentUpon>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="WindowSignUp.xaml">
+    <Page Include="SignUpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,10 +153,16 @@
     <None Include="Connected Services\FlexPulseService\ClienteWpf.FlexPulseService.DevicesList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\FlexPulseService\ClienteWpf.FlexPulseService.Gymer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\FlexPulseService\ClienteWpf.FlexPulseService.GymerList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\FlexPulseService\ClienteWpf.FlexPulseService.TrainingpList.datasource">
+    <None Include="Connected Services\FlexPulseService\ClienteWpf.FlexPulseService.TrainingProgramList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\FlexPulseService\ClienteWpf.FlexPulseService.TrainProgramDeviceList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\FlexPulseService\ClienteWpf.FlexPulseService.User.datasource">
@@ -156,15 +194,6 @@
     <Resource Include="Images\_f876abc9-aff2-4436-99d2-2cd36a9127b9.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\weightlifting-2427461_640.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\360_F_608159635_oQ0NJZIj1XCGlSaptlc0m1g0jb5M1SL8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +213,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\forhomepg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

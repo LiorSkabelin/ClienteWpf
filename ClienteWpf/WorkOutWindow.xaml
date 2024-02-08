@@ -1,0 +1,104 @@
+﻿<Window x:Class="ClienteWpf.WorkOutWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ClienteWpf"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="ExercisePage"
+        Background="LightGray">
+    <Grid Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{Binding Path=Name,StringFormat=Workout: {0}}"
+                   FontSize="35"
+                   HorizontalAlignment="Center"
+                   FontFamily="Elephant"
+                   Grid.RowSpan="1"
+                   Grid.Column="1"/>
+        
+        <TextBlock Text="{Binding Path=Level,StringFormat=Level: {0}}"
+                   FontSize="35"
+                   FontFamily="Elephant"
+                   Grid.RowSpan="1"
+                   Grid.Column="0" />
+        <Border HorizontalAlignment="Center"
+                BorderBrush="Black"
+                BorderThickness="5"
+                CornerRadius="5"
+                Padding="5"
+                Margin="0,50,0,0"
+                VerticalAlignment="Top"
+                Width="438"
+                Grid.Column="1"
+                Grid.Row="1">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform AngleY="0" />
+                    <RotateTransform />
+                    <TranslateTransform Y="0" />
+                </TransformGroup>
+            </Border.RenderTransform>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center"
+                        HorizontalAlignment="Center" x:Name="ExerciesPanel">
+                <TextBlock Text="{Binding Path=Device.Name,StringFormat=Device: {0}}"
+                           FontSize="25"
+                           FontFamily="Elephant" />
+                <TextBlock Text="{Binding Path=Time, StringFormat=Time: {0}}"
+                           FontSize="25"
+                           FontFamily="Elephant" />
+                <TextBlock Text="{Binding Path=Rep, StringFormat=Rep: {0}}"
+                           FontSize="25"
+                           FontFamily="Elephant" />
+                <TextBlock Text="{Binding Path=Set, StringFormat=Set: {0}}"
+                           FontSize="25"
+                           FontFamily="Elephant" />
+            </StackPanel>
+        </Border>
+        <Button x:Name="btnBack"
+                FontSize="35"
+                FontFamily="Elephant"
+                Content="🔙"
+                Background="Transparent"
+                Grid.Column="0"
+                Height="50"
+                Grid.Row="1" Click="btnBack_Click"/>
+        <Button x:Name="btnNext"
+                FontSize="35"
+                FontFamily="Elephant"
+                Content="➡️"
+                Background="Transparent"
+                Grid.Column="3"
+                Grid.Row="1"
+                Height="50"
+                Click="btnNext_Click"/>
+        <Button x:Name="Exit"
+                FontSize="35"
+                FontFamily="Elephant"
+                Content="Exit"
+                Grid.Column="2"
+                Grid.Row="0"
+                Height="50"
+                Background="LightGray"
+                Click="Exit_Click"/>
+        <TextBlock FontSize="25"
+                   HorizontalAlignment="Center"
+                   FontFamily="Elephant"
+                   Grid.Column="1"
+                   Grid.Row="0">
+            <!--<Run Text="{Binding Path=Name}" />
+            <Run Text=" " />
+            <Run Text="{Binding Path=Level}" />-->
+        </TextBlock>
+    </Grid>
+</Window>

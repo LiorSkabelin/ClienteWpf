@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ClienteWpf.SmallProgramUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ClienteWpf"
+             mc:Ignorable="d"
+             d:DesignHeight="200"
+             d:DesignWidth="250">
+    <Border HorizontalAlignment="Left"
+            BorderBrush="Black"
+            BorderThickness="1"
+            CornerRadius="5"
+            Padding="5"
+            VerticalAlignment="Center"
+            Margin="5">
+        <StackPanel>
+            <TextBlock Text="{Binding Path=Name,StringFormat=Workout: {0}}"
+                       FontSize="25"
+                       FontFamily="Elephant" />
+            <TextBlock Text="{Binding Path=Level, StringFormat=Level: {0}}"
+                       FontSize="25"
+                       FontFamily="Elephant" />
+            <TextBlock FontSize="25"
+                       FontFamily="Elephant">
+                <Run Text="By: " />
+                <Run Text="{Binding Path=User.Lastname}" />
+                <Run Text=" " />
+                <Run Text="{Binding Path=User.Firstname}" /></TextBlock>
+            <TextBlock x:Name="tbExNum"
+                       Text="ex num: 10"
+                       FontSize="25"
+                       FontFamily="Elephant" />
+        </StackPanel>
+    </Border>
+</UserControl>

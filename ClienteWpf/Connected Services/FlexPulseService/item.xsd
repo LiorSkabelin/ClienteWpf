@@ -9,7 +9,9 @@
   <xs:complexType name="Devices">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -31,44 +33,20 @@
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="Height" type="xs:int" />
-          <xs:element minOccurs="0" name="Mycoach" type="xs:int" />
+          <xs:element minOccurs="0" name="Mycoach" nillable="true" type="tns:User" />
           <xs:element minOccurs="0" name="Weight" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Gymer" nillable="true" type="tns:Gymer" />
-  <xs:complexType name="TrainingpList">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainingProgram" nillable="true" type="tns:TrainingProgram" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TrainingpList" nillable="true" type="tns:TrainingpList" />
-  <xs:complexType name="TrainingProgram">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:BaseEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Level" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Userld" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TrainingProgram" nillable="true" type="tns:TrainingProgram" />
-  <xs:complexType name="UserList">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UserList" nillable="true" type="tns:UserList" />
   <xs:complexType name="User">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="Bday" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Gender" type="xs:boolean" />
           <xs:element minOccurs="0" name="IsCoach" type="xs:boolean" />
           <xs:element minOccurs="0" name="IsManger" type="xs:boolean" />
@@ -79,4 +57,50 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="TrainingProgramList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainingProgram" nillable="true" type="tns:TrainingProgram" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrainingProgramList" nillable="true" type="tns:TrainingProgramList" />
+  <xs:complexType name="TrainingProgram">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Level" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrainingProgram" nillable="true" type="tns:TrainingProgram" />
+  <xs:complexType name="TrainProgramDeviceList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainProgramDevice" nillable="true" type="tns:TrainProgramDevice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrainProgramDeviceList" nillable="true" type="tns:TrainProgramDeviceList" />
+  <xs:complexType name="TrainProgramDevice">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Device" nillable="true" type="tns:Devices" />
+          <xs:element minOccurs="0" name="Program" nillable="true" type="tns:TrainingProgram" />
+          <xs:element minOccurs="0" name="Rep" type="xs:int" />
+          <xs:element minOccurs="0" name="Set" type="xs:int" />
+          <xs:element minOccurs="0" name="Time" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrainProgramDevice" nillable="true" type="tns:TrainProgramDevice" />
+  <xs:complexType name="UserList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserList" nillable="true" type="tns:UserList" />
 </xs:schema>

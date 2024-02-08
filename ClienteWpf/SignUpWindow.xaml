@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClienteWpf"
         mc:Ignorable="d"      
-        Height="770"
+        Height="820"
         Width="900">
     <Window.Resources>
         <SolidColorBrush x:Key="PrimaryBackground"
@@ -43,7 +43,7 @@
                        FontWeight="Bold"
                        Foreground="{StaticResource AccentColor}"
                        Margin="0,0,0,20" />
-            <StackPanel Margin="0,10">
+            <StackPanel Margin="0,15">
                 <StackPanel Orientation="Horizontal"
                             Margin="0,0,0,10">
                     <materialDesign:PackIcon Kind="Account"
@@ -59,10 +59,20 @@
                              Margin="10,0,0,0"
                              Background="{StaticResource PrimaryBackground}"
                              BorderBrush="{StaticResource AccentColor}"
-                             Foreground="{StaticResource PrimaryForeground}" />
+                             Foreground="{StaticResource PrimaryForeground}">
+                        <TextBox.Text>
+                            <Binding Path="Firstname"
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:ValidName Min="2"
+                                                     Max="8" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,10">
+                            Margin="0,0,0,15">
                     <materialDesign:PackIcon Kind="Account"
                                              Width="30"
                                              Height="30"
@@ -76,10 +86,20 @@
                              Margin="10,0,0,0"
                              Background="{StaticResource PrimaryBackground}"
                              BorderBrush="{StaticResource AccentColor}"
-                             Foreground="{StaticResource PrimaryForeground}" />
+                             Foreground="{StaticResource PrimaryForeground}">
+                        <TextBox.Text>
+                            <Binding Path="Lastname"
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:ValidName Min="2"
+                                                     Max="8" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,10">
+                            Margin="0,0,0,15">
                     <materialDesign:PackIcon Kind="GenderMaleFemale"
                                              Width="30"
                                              Height="30"
@@ -99,7 +119,7 @@
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,10">
+                            Margin="0,0,0,15">
                     <materialDesign:PackIcon Kind="Email"
                                              Width="30"
                                              Height="30"
@@ -113,10 +133,19 @@
                              Margin="10,0,0,0"
                              Background="{StaticResource PrimaryBackground}"
                              BorderBrush="{StaticResource AccentColor}"
-                             Foreground="{StaticResource PrimaryForeground}" />
+                             Foreground="{StaticResource PrimaryForeground}">
+                        <TextBox.Text>
+                            <Binding Path="Email"
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:Validemail/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,10">
+                            Margin="0,0,0,15">
                     <materialDesign:PackIcon Kind="Key"
                                              Width="30"
                                              Height="30"
@@ -128,12 +157,13 @@
                                  Height="40"
                                  FontSize="18"
                                  Margin="10,0,0,0"
+                                 PasswordChanged="pbPassword_PasswordChanged"
                                  Background="{StaticResource PrimaryBackground}"
                                  BorderBrush="{StaticResource AccentColor}"
                                  Foreground="{StaticResource PrimaryForeground}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,10">
+                            Margin="0,0,0,15">
                     <materialDesign:PackIcon Kind="Key"
                                              Width="30"
                                              Height="30"
@@ -145,12 +175,13 @@
                                  Height="40"
                                  FontSize="18"
                                  Margin="10,0,0,0"
+                                 PasswordChanged="pbcRePassword_PasswordChanged"
                                  Background="{StaticResource PrimaryBackground}"
                                  BorderBrush="{StaticResource AccentColor}"
                                  Foreground="{StaticResource PrimaryForeground}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,10">
+                            Margin="0,0,0,15">
                     <materialDesign:PackIcon Kind="Calendar"
                                              Width="30"
                                              Height="30"
@@ -163,7 +194,16 @@
                                 Margin="10,0,0,0"
                                 Background="{StaticResource PrimaryBackground}"
                                 BorderBrush="{StaticResource AccentColor}"
-                                Foreground="{StaticResource PrimaryForeground}" />
+                                Foreground="{StaticResource PrimaryForeground}">
+                        <DatePicker.SelectedDate>
+                            <Binding Path="Bday"
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:ValidBirthYear />
+                                </Binding.ValidationRules>
+                            </Binding> 
+                        </DatePicker.SelectedDate>
+                    </DatePicker>
                 </StackPanel>
             </StackPanel>
             <Button x:Name="btnSignUp"

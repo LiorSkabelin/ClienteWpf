@@ -26,10 +26,15 @@ namespace ClienteWpf
         private bool pass, repass;
         public WindowSignUp()
         {
+            InitializeComponent();
             myServiceGym = new ServiceGymClient();
-            myUser = new User();
-            mainGrid.DataContext = myUser;
             pass = repass = false;
+            dpBirthday.DisplayDateStart = DateTime.Today.AddYears(-120);
+            dpBirthday.DisplayDateEnd = DateTime.Today.AddYears(-16);
+
+            myUser = new User();
+            myUser.Bday = DateTime.Today.AddYears(-16);
+            this.DataContext = myUser;
             tbFirstName.Focus();
         }
 
@@ -38,18 +43,19 @@ namespace ClienteWpf
             if (!CheckData())
             {
                 MessageBox.Show("error");
+                return;
             }
             //Check if username is in use?
-            if (!myServiceGym.IsUserNameFree(tbEmail.Text))
+            if (!myServiceGym.IsEmailFree(myUser))
             {
-                MessageBox.Show("Username is used");
+                MessageBox.Show("Email is used");
                 return;
             }
             //Username if free, Create new user
             myUser.Password = pbPassword.Password;
             myUser.IsManger = false;
             //Send to service
-            if (mySnackService.NewUser(myUser) != 1)
+            if (myServiceGym.InsertUser(myUser) != 1)
             {
                 MessageBox.Show("Oh oh...something is wrong");
                 return;
@@ -69,7 +75,6 @@ namespace ClienteWpf
             if (dpBirthday.Text.Equals(string.Empty)) return false;
             if (Validation.GetHasError(tbFirstName)) return false;
             if (Validation.GetHasError(tbLastName)) return false;
-            if (Validation.GetHasError(cmbGender)) return false;
             if (Validation.GetHasError(tbEmail)) return false;
             if (Validation.GetHasError(dpBirthday)) return false;
             if (!pass) return false;
@@ -93,11 +98,13 @@ namespace ClienteWpf
             ValidationResult result = valid.Validate(pbPassword.Password, null);
             if (result.IsValid)
             {
+                pass = true;
                 pbPassword.BorderBrush = Brushes.Aqua;
                 HintAssist.SetHelperText(pbPassword, "Password");
             }
             else
             {
+                pass=false;
                 pbPassword.BorderBrush = Brushes.Red;
                 HintAssist.SetHelperText(pbPassword, result.ErrorContent.ToString());
             }
@@ -107,11 +114,13 @@ namespace ClienteWpf
         {
             if (pbPassword.Password.Equals(pbcPassword.Password))
             {
+                repass = true;
                 pbcPassword.BorderBrush = Brushes.Aqua;
                 HintAssist.SetHelperText(pbcPassword, "Passwords must match");
             }
             else
             {
+                repass=false;
                 pbcPassword.BorderBrush = Brushes.Red;
                 HintAssist.SetHelperText(pbcPassword, "Passwords DO NOT match");
             }

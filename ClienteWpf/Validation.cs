@@ -16,12 +16,12 @@ namespace ClienteWpf
         {
             try
             {
-                int year = int.Parse(value.ToString());
-                if (year < 1950)
+                DateTime date= DateTime.Parse(value.ToString());
+                if (date.Year < 1950)
                 {
                     return new ValidationResult(false, "Too old");
                 }
-                if (year > DateTime.Today.Year)
+                if (date.Year > DateTime.Today.Year)
                 {
                     return new ValidationResult(false, "No way!");
                 }
@@ -47,11 +47,11 @@ namespace ClienteWpf
                 string fisrtname = value.ToString();
                 if (fisrtname.Length < Min)
                 {
-                    return new ValidationResult(false, "name to short");
+                    return new ValidationResult(false, "name too short");
                 }
                 if (fisrtname.Length > Max)
                 {
-                    return new ValidationResult(false, "name to longt");
+                    return new ValidationResult(false, "name too long");
                 }
                 if (!Char.IsLetter(fisrtname[0]))
                 {

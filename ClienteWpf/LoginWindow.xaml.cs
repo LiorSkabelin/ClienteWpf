@@ -16,14 +16,14 @@ using ClienteWpf.FlexPulseService;
 namespace ClienteWpf
 {
     /// <summary>
-    /// Interaction logic for WindowLogin.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class WindowLogin : Window
+    public partial class LoginWindow : Window
     {
         private User user;
         private bool UserEmailOK, PassOK;
         private ServiceGymClient myServiceGym;
-        public WindowLogin()
+        public LoginWindow()
         {
             InitializeComponent();
             myServiceGym = new ServiceGymClient();
@@ -51,14 +51,14 @@ namespace ClienteWpf
             if (user.IsManger)
             {
                 MessageBox.Show("nice Login");
-                WindowAdmin wa = new WindowAdmin(user);
+                MangerWindow wa = new MangerWindow(user);
                 wa.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Regular user login");
-                //wndUserProfile wp = new wndUserProfile(user);
-                //wp.ShowDialog();
+                HomeWindow wp = new HomeWindow(user);
+                wp.ShowDialog();
             }
             tbUseremail.Text = pbPassword.Password = string.Empty;
         }
@@ -101,6 +101,15 @@ namespace ClienteWpf
                 pbPassword.ToolTip = null;
                 PassOK = true;
             }
+        }
+
+        private void Skip_Click(object sender, RoutedEventArgs e)
+        {
+            user.Email = "liorskab@gmail.com";
+            user.Password = "Lior123";
+            user = myServiceGym.Login(user);
+            HomeWindow windowHome = new HomeWindow(user);
+            windowHome.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
